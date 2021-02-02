@@ -1,0 +1,317 @@
+.login-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e7f1fd;
+  overflow: hidden;
+  min-width: 1200px;
+  font-family: "Microsoft YaHei";
+}
+
+/* 登录页top栏 */
+.login-header {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 66px;
+  box-shadow: 0px 4px 5px -3px rgba(0, 0, 0, .1);
+  background-color: #ffffff;
+  padding: 0 30px;
+  z-index: 9;
+}
+
+.login-logo {
+  display: flex;
+  align-items: center;
+}
+
+.website-title {
+  font-size: 32px;
+  color: #333333;
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+.login-header-c {
+  font-size: 16px;
+}
+
+.login-header-c a {
+  display: inline-block;
+  line-height: 66px;
+  margin-right: 40px;
+  border-bottom: 4px solid transparent;
+  vertical-align: top;
+}
+
+.login-header-c a.cur {
+  border-bottom-color: #4480ed;
+  color: #4480ed
+}
+
+.login-header-c a:hover {
+  color: #4480ed
+}
+
+.login-header-c a:nth-child(3) {
+  margin-left: 40px;
+  position: relative;
+  cursor: pointer
+}
+
+.login-header-c a:nth-child(3):before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  position: absolute;
+  left: -40px;
+  top: 26px;
+  background-color: #ddd
+}
+
+.login-btns {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.btn-s {
+  display: inline-block;
+  font-size: 14px;
+  padding: 3px 17px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.btn-s + .btn-s {
+  margin-left: 20px;
+}
+
+.cur-btn-s,
+.btn-s:hover {
+  color: #fff;
+  background-color: #4480ee;
+  border-color: #4480ee;
+}
+
+/* 登录页主体 */
+.login-body {
+  height: calc(100vh - 66px);
+  margin-top: 66px;
+  position: relative;
+}
+.login-content {
+  width: 1480px;
+  height: 620px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+}
+.login-content-l {
+  width: 830px;
+  margin-right: 100px;
+  color: #406cd0;
+  z-index: 9;
+  text-align: center;
+  position: relative;
+}
+.login-content-l::after {
+  position: absolute;
+  content: '';
+  right: -144px;
+  top: 200px;
+  width: 102px;
+  height: 91px;
+  background-image: url("../images/cir1.png");
+}
+.lt-bot {
+  margin-top: 5px;
+}
+.lt-cir {
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+.lt-cir span{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 25px;
+  background-color: #fff;
+  padding: 19px 17px;
+  box-sizing: border-box;
+  font-size: 24px;
+  color: #406cd0;
+}
+.lt-imgp {
+  margin-top: -80px;
+}
+
+/* 登录表单 */
+.login-content-r {
+  width: 550px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 9;
+}
+.form-header {
+  position: relative;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.form-header-r {
+  position: absolute;
+  right: 0;
+  margin-top: 18px;
+  font-size: 16px;
+  color: #4480ee;
+  cursor: pointer;
+}
+.login-content-r .el-input__inner {
+  height: 68px;
+  line-height: 68px;
+  border-radius: 0;
+  padding-left: 50px;
+  font-size: 20px;
+}
+.login-content-r .el-input__prefix{left: 12px;top:15px;}
+.login-content-r .find-item {
+  margin: -6px 0 18px;
+  height: 20px;
+}
+.login-content-r .find-item .el-form-item__content{
+  line-height: 20px;
+}
+.login-btn {
+  color: #fff;
+  font-size: 22px;
+  display: inline-block;
+  height: 65px;
+  line-height: 65px;
+  text-align: center;
+  background-color: #4480ee;
+  width: 100%;
+  transition: .3s;
+  cursor: pointer;
+}
+
+/*登录页面加第三方登录图标*/
+.chat-icon{text-align:center;height: 45px;line-height: 45px;margin-top:15px}
+.chat-icon a{margin:0 10px;display: inline-block;width: 45px;height: 45px;}
+.chat-icon a svg{font-size:26px;}
+.chat-icon a .icon-wangyi1{font-size:30px}
+.chat-icon a svg:nth-child(2){display:none}
+.chat-icon a:hover svg:nth-child(1){display:none}
+.chat-icon a:hover svg:nth-child(2){display:inline}
+
+
+/* 四个角 */
+.bg-corner {
+  position: absolute;
+}
+.bg-l-t {
+  width: 124px;
+  height: 151px;
+  left: 0;
+  top: -28px;
+}
+.bg-r-t {
+  width: 250px;
+  height: 184px;
+  right: 0;
+  top: -66px;
+}
+.bg-l-b {
+  width: 111px;
+  height: 239px;
+  left: 0;
+  bottom: 0;
+}
+.bg-r-b {
+  width: 94px;
+  height: 130px;
+  right: 0;
+  bottom: 150px;
+}
+
+
+@media screen and (max-width: 1600px) {
+  .login-content-l {
+    width: 686px;
+    margin-right: 60px;
+  }
+  .login-content-l::after {
+    right: -104px;
+  }
+  .font-s60 {
+    font-size: 50px;
+  }
+  .font-s30 {
+    font-size: 24px;
+  }
+  .lt-cir span {
+    width: 90px;
+    height: 90px;
+    font-size: 20px;
+    margin: 0 15px;
+  }
+  .lt-img {
+    width: 450px;
+  }
+  .bg-l-t {
+    width: 76px;
+    height: 93px;
+  }
+  .bg-r-t {
+    width: 111px;
+    height: 88px;
+    top: 0;
+  }
+  .bg-l-b {
+    width: 76px;
+    height: 164px;
+  }
+  .bg-r-b {
+    width: 76px;
+    height: 104px;
+  }
+}
+
+@media screen and (max-width: 1366px){
+  .login-content-l {
+    width: 638px;
+    margin-right: 40px;
+  }
+  .login-content-l::after {
+    right: -84px;
+  }
+  .font-s60 {
+    font-size: 40px;
+  }
+  .font-s30 {
+    font-size: 22px;
+  }
+  .lt-cir span {
+    width: 90px;
+    height: 90px;
+    font-size: 20px;
+    margin: 0 15px;
+  }
+  .lt-img {
+    width: 400px;
+  }
+}
+

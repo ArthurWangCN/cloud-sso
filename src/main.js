@@ -4,6 +4,10 @@ import router from './router'
 import store from './store'
 import './plugins/element.js'
 
+import './assets/iconfont'
+import './assets/css/reset.css';
+import './assets/css/style.css';
+
 Vue.config.productionTip = false
 
 new Vue({

@@ -1,0 +1,66 @@
+/*reset*/
+blockquote,body,dd,div,dl,dt,fieldset,figcaption,figure,form,h1,h2,h3,h4,h5,h6,input,li,ol,p,pre,td,textarea,th,ul{padding:0;margin:0}
+h1,h2,h3,h4,h5,h6{font-weight:400}
+ol,ul{list-style:none}
+img{border:none}
+a{cursor:pointer;text-decoration:none;color:#333;transition:.3s}
+table{border-collapse:collapse;border-spacing:0}
+i{font-style:normal}
+pre{color:#666; font:14px Arial,"\5FAE\8F6F\96C5\9ED1"; *font-family: "Microsoft YaHei";white-space:pre-wrap}
+/*form*/
+button,fieldset,input,option,select,textarea{outline:0;vertical-align:middle}
+input[type=text],input[type=password]{padding-left:5px;box-sizing:border-box}
+input[type=text],input[type=password],input[type=button]{font-family:"Microsoft YaHei"}
+input::-ms-clear{display:none}
+input[type=password]::-ms-reveal{display:none}
+button{cursor:pointer;border:none;background:0 0;font-family:"Microsoft YaHei"}
+textarea{resize:none;padding:5px!important;line-height:24px;font-family:"Microsoft YaHei"}
+/*icon图标*/
+.icon {width: 1.5em; height: 1.5em; vertical-align: middle;fill: currentColor;overflow: hidden;}
+/*清除浮动*/
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}
+.clear{clear:both}
+/*内容溢出*/
+.text-ellipsis {overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+/*常用样式*/
+.posr{position:relative}
+.posa{position:absolute}
+.posf{position:fixed}
+.float-l{float:left}
+.float-r{float:right}
+.inline-block{display:inline-block;zoom:1}
+.block{display:block}
+.hide{display:none}
+.vam{vertical-align:middle}
+.text-center{text-align:center}
+.text-right{text-align: right}
+.color-blue{color:#208de0;}
+.color-warn{color:#eb0707;}
+.color-4e{color:#4480ee}
+.font-s60{font-size:60px;}
+.font-s48{font-size:48px;}
+.font-s30{font-size:30px;}
+.font-s32{font-size:32px;}
+.font-s18{font-size:18px;}
+.circle,.line{display:inline-block;background-color:#406cd0;margin:0 25px 15px;}
+.circle{width:12px;height:12px;border-radius:50%;}
+.line{height:2px;width:32px;margin:0 10px 5px}
+.lt-bot .circle,.logint-l .circle{width:8px;height:8px;margin:0 15px 5px;background-color:#bcc2e8}
+.logint-l .circle{margin:0 15px 5px}
+.mt10{margin-top:10px}
+/*placeholder颜色*/
+.login-wrap .el-input__inner::-webkit-input-placeholder{color:#bbb;font-size: 18px;}
+.login-wrap .el-input__inner:-moz-placeholder{color:#bbb;font-size: 18px;}
+.login-wrap .el-input__inner::-moz-placeholder{color:#bbb;font-size: 18px;}
+.login-wrap .el-input__inner:-ms-input-placeholder{color:#bbb;font-size: 18px;}
+div.epid-dialog-con::-webkit-scrollbar{width:6px;height:10px;}
+div.epid-dialog-con::-webkit-scrollbar-track{background: rgba(144,147,153,.3);border-radius:4px;}
+div.epid-dialog-con::-webkit-scrollbar-thumb{background:rgba(144,147,153,.5);}
+div.epid-dialog-con::-webkit-scrollbar-thumb:hover{background:rgba(144,147,153,.5);}
+div.epid-dialog-con::-webkit-scrollbar-corner{background: #179a16;}
+/*弹窗*/
+.el-dialog { border-radius: 10px;overflow: hidden}
+.el-dialog__header { padding: 15px 20px;border-bottom: 1px solid #ddd}
+.el-dialog__body {padding: 20px 30px;color: #333}
+.register-wrap3-dialog .el-dialog__header{border:0}
+.register-wrap3-dialog .el-dialog{top: 50%!important;transform: translateY(-50%)!important;margin-top:33px!important}
