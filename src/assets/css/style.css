@@ -36,21 +36,31 @@
 }
 
 .login-header-c {
+  margin-left: 60px;
   font-size: 16px;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  padding: 0 40px;
+  max-width: 760px;
+  box-sizing: border-box;
 }
-
-.login-header-c a {
+.login-header-c .el-divider--vertical {
+  height: 20px;
+  color: #ddd;
+}
+/* .login-header-c a {
   display: inline-block;
   line-height: 66px;
   margin-right: 40px;
   border-bottom: 4px solid transparent;
   vertical-align: top;
-}
+} */
 
-.login-header-c a.cur {
+/* .login-header-c a.cur {
   border-bottom-color: #4480ed;
   color: #4480ed
-}
+} */
 
 .login-header-c a:hover {
   color: #4480ed
@@ -74,8 +84,12 @@
 }
 
 .login-btns {
-  margin-left: auto;
+  /* margin-left: auto; */
   flex-shrink: 0;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  background-color: inherit;
 }
 
 .btn-s {
@@ -180,14 +194,16 @@
   color: #4480ee;
   cursor: pointer;
 }
-.login-content-r .el-input__inner {
+.login-content-r .el-input__inner,
+.register-wrapper .el-input__inner {
   height: 68px;
   line-height: 68px;
   border-radius: 0;
   padding-left: 50px;
   font-size: 20px;
 }
-.login-content-r .el-input__prefix{left: 12px;top:15px;}
+.login-content-r .el-input__prefix,
+.register-wrapper .el-input__prefix {left: 12px;top:15px;}
 .login-content-r .find-item {
   margin: -6px 0 18px;
   height: 20px;
@@ -217,6 +233,64 @@
 .chat-icon a:hover svg:nth-child(1){display:none}
 .chat-icon a:hover svg:nth-child(2){display:inline}
 
+
+/* 注册表单 */
+.register-wrapper {
+  position: relative;
+}
+.register-wrapper h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.register-wrapper .back-login {
+  position: absolute;
+  right: 0;
+  margin-top: 18px;
+  font-size: 16px;
+  color: #4480ee;
+  cursor: pointer;
+}
+
+.register-wrapper svg {
+  color: #c1c1c1;
+  font-size: 20px;
+}
+
+/* 获取验证码按钮 */
+.yzm-item01 .el-input-group__append {
+  border: 1px solid #ddd;
+  border-radius: 0;
+  width: 118px;
+  text-align: center;
+}
+.yzm-txt {
+  display: inline-block;
+  height: 66px;
+  line-height: 66px;
+  background-color: #f5f5f5;
+  color: #4480ee;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.el-checkbox__input.is-checked+.el-checkbox__label {
+  color: #333;
+}
+
+/* 错误提示 */
+.tip-txt {
+  position: absolute;
+  bottom: -23px;
+  font-size: 14px;
+  color: #eb0707;
+  line-height: 20px;
+  max-height: 40px;
+}
+.tip-txt svg {
+  font-size: 14px;
+  color: #eb0707;
+}
 
 /* 四个角 */
 .bg-corner {
@@ -249,6 +323,9 @@
 
 
 @media screen and (max-width: 1600px) {
+  .login-header-c {
+    margin-left: 0;
+  }
   .login-content-l {
     width: 686px;
     margin-right: 60px;
@@ -291,6 +368,9 @@
 }
 
 @media screen and (max-width: 1366px){
+  .login-header-c {
+    max-width: 600px;
+  }
   .login-content-l {
     width: 638px;
     margin-right: 40px;

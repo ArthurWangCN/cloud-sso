@@ -2,9 +2,7 @@
   <div class="register-wrapper">
     <h2 class="clearfix">
       <span class="float-l">新用户注册</span>
-      <a href="javascript:;" class="regis-icon float-r" v-on:click="backLogin"
-        >返回登录</a
-      >
+      <span class="back-login" @click="goLogin">返回登录</span>
     </h2>
     <el-form>
       <!-- 错误提示信息 -->
@@ -59,6 +57,7 @@
           type="password"
           v-model="registerForm.registerPassword"
           name="registerPassword"
+          auto-complete="new-password"
         >
           <svg slot="prefix" class="icon" aria-hidden="true">
             <use xlink:href="#icon-personPwd"></use>
@@ -101,13 +100,29 @@ export default {
     };
   },
   methods: {
-    backLogin() {},
+    goLogin() {
+      this.$emit("goLogin");
+    },
 
-    sendVerifyCode() {},
+    // 发送验证码
+    sendVerifyCode: function () {
+      var self = this;
+      self.showError = false;
+      //验证手机号
+      var registerPhone = self.registerForm.registerPhone;
+      if (!registerPhone) {
+        self.showError = true;
+        self.erroMes = "手机号不能为空";
+        return;
+      }
+      if (!/^\d{11}$/g.test(registerPhone)) {
+        self.showError = true;
+        self.erroMes = "请输入合法手机号";
+        return;
+      }
+    },
 
     confirmRegister() {},
-
-
   },
 };
 </script>

@@ -2,7 +2,7 @@
   <div class="form-wrapper">
     <h2 class="form-header">
       <span>用户登录</span>
-      <span class="form-header-r">新用户注册</span>
+      <span class="form-header-r" @click="goRegister">新用户注册</span>
     </h2>
     <el-form>
       <!-- 错误提示信息 -->
@@ -30,7 +30,7 @@
           placeholder="密码"
           type="password"
           name="password"
-          v-model="form.password"
+          v-model.trim="form.password"
           v-on:keyup.native.13="login"
         >
           <svg slot="prefix" class="icon" aria-hidden="true">
@@ -107,6 +107,7 @@
 </template>
 
 <script>
+import { Base64 } from 'js-base64';
 export default {
   name: "loginForm",
   data() {
@@ -125,13 +126,18 @@ export default {
     };
   },
   methods: {
-    login() {},
+    login() {
+    },
 
     verifyCode() {},
 
     getVerifyCode() {},
 
     thirdLogin() {},
+
+    goRegister() {
+      this.$emit('goRegister');
+    }
   },
 };
 </script>

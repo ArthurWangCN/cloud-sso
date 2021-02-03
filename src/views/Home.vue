@@ -8,6 +8,8 @@
       <div class="login-header-c">
         <a href="javaScript:;">平台介绍</a>
         <a href="javaScript:;">使用指南</a>
+        <!-- <span class="header-line"></span> -->
+        <el-divider direction="vertical"></el-divider>
         <a href="https://www.cnki.net/" target="_blank">CNKI总库平台</a>
         <a href="http://kms.cnki.net" target="_blank">知识管理</a>
         <a href="http://km.cnki.net/foundation/home/login#/home" target="_blank"
@@ -52,8 +54,8 @@
           </p>
         </div>
         <div class="login-content-r">
-          <!-- <login-form></login-form> -->
-          <register-form></register-form>
+          <login-form v-if="curTab==='login'" @goRegister="curTab='register'"></login-form>
+          <register-form v-else @goLogin="curTab='login'"></register-form>
         </div>
       </div>
 
