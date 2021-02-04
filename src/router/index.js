@@ -8,15 +8,25 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: { title: 'CNKI百行知识创新服务平台' }
   },
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/protocol',
+    name: 'protocol',
+    component: () => import(/* webpackChunkName: "about" */ '../views/RegiProtocol.vue'),
+    meta: { title: '中国知网使用协议 & 中国知网隐私政策' }
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ContactUs.vue'),
+    meta: { title: '中国知网-CNKI汇智平台_知识管理_团队协作_知识管理专家' }
   }
 ]
 

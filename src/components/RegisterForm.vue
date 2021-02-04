@@ -67,9 +67,7 @@
       <el-form-item class="find-item">
         <el-checkbox v-model="registerForm.registerAgree">
           我已同意
-          <a href="~/home/registerstruction" class="color-4e"
-            >《CNKI用户注册协议》</a
-          >
+          <a class="color-4e" @click.prevent="goReigsterProtocol">《CNKI用户注册协议》</a>
         </el-checkbox>
       </el-form-item>
       <el-form-item class="btn-form-item">
@@ -123,6 +121,10 @@ export default {
     },
 
     confirmRegister() {},
+
+    goReigsterProtocol() {
+      this.$router.push('/protocol');
+    }
   },
 };
 </script>

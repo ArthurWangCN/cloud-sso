@@ -49,10 +49,10 @@ textarea{resize:none;padding:5px!important;line-height:24px;font-family:"Microso
 .logint-l .circle{margin:0 15px 5px}
 .mt10{margin-top:10px}
 /*placeholder颜色*/
-.login-wrap .el-input__inner::-webkit-input-placeholder{color:#bbb;font-size: 18px;}
-.login-wrap .el-input__inner:-moz-placeholder{color:#bbb;font-size: 18px;}
-.login-wrap .el-input__inner::-moz-placeholder{color:#bbb;font-size: 18px;}
-.login-wrap .el-input__inner:-ms-input-placeholder{color:#bbb;font-size: 18px;}
+.login-wrapper .el-input__inner::-webkit-input-placeholder{color:#bbb;font-size: 18px;}
+.login-wrapper .el-input__inner:-moz-placeholder{color:#bbb;font-size: 18px;}
+.login-wrapper .el-input__inner::-moz-placeholder{color:#bbb;font-size: 18px;}
+.login-wrapper .el-input__inner:-ms-input-placeholder{color:#bbb;font-size: 18px;}
 div.epid-dialog-con::-webkit-scrollbar{width:6px;height:10px;}
 div.epid-dialog-con::-webkit-scrollbar-track{background: rgba(144,147,153,.3);border-radius:4px;}
 div.epid-dialog-con::-webkit-scrollbar-thumb{background:rgba(144,147,153,.5);}

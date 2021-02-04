@@ -15,7 +15,7 @@
         <a href="http://km.cnki.net/foundation/home/login#/home" target="_blank"
           >OKMS汇智</a
         >
-        <a href="~/home/contactIndustry">联系我们</a>
+        <a @click.prevent="goContactUs">联系我们</a>
       </div>
       <div class="login-btns">
         <span
@@ -83,7 +83,9 @@ export default {
     };
   },
   methods: {
-    
+    goContactUs() {
+      this.$router.push('/contact')
+    }
   }
 };
 </script>
