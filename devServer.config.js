@@ -24,9 +24,9 @@ const getCookie = (userAgent) => {
 let flag = false;
 const proxyConfig = [{
   // 开发需要代理的请求列表
-  context: ['/index'],
+  context: ['/sso'],
   // 跨域代理目标地址
-  target: "http://39.99.217.114:8081",
+  target: "http://23.91.100.14:8000/",
   changeOrigin: true,
   // 监听代理请求，将cookie插入到请求头
   onProxyReq(proxyReq, req, res) {
@@ -36,7 +36,7 @@ const proxyConfig = [{
   onProxyRes(proxyRes, req, res) {
     if (proxyRes.headers['set-cookie']) {
       setCookie(req.get('User-Agent'), proxyRes.headers['set-cookie']);
-      if (flag) {
+      if(flag) {
         flag = false;
         res.redirect('/');
       }
@@ -58,8 +58,6 @@ proxyConfig.forEach(config => {
     });
   }
 });
-
-console.log(proxy)
 
 module.exports = {
   // index: '',

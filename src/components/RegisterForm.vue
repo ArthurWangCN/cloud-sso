@@ -67,7 +67,9 @@
       <el-form-item class="find-item">
         <el-checkbox v-model="registerForm.registerAgree">
           我已同意
-          <a class="color-4e" @click.prevent="goReigsterProtocol">《CNKI用户注册协议》</a>
+          <a class="color-4e" @click.prevent="goReigsterProtocol"
+            >《CNKI用户注册协议》</a
+          >
         </el-checkbox>
       </el-form-item>
       <el-form-item class="btn-form-item">
@@ -95,6 +97,7 @@ export default {
         registerAgree: true,
       },
       verifyText: "点击发送验证码",
+      sending: false,
     };
   },
   methods: {
@@ -104,27 +107,39 @@ export default {
 
     // 发送验证码
     sendVerifyCode: function () {
-      var self = this;
-      self.showError = false;
+      this.showError = false;
       //验证手机号
-      var registerPhone = self.registerForm.registerPhone;
+      var registerPhone = this.registerForm.registerPhone;
       if (!registerPhone) {
-        self.showError = true;
-        self.erroMes = "手机号不能为空";
+        this.showError = true;
+        this.erroMes = "手机号不能为空";
         return;
       }
       if (!/^\d{11}$/g.test(registerPhone)) {
-        self.showError = true;
-        self.erroMes = "请输入合法手机号";
+        this.showError = true;
+        this.erroMes = "请输入合法手机号";
         return;
       }
+      //处理发送验证码提示
+      if (this.sending) return;
+      this.sending = true;
+      var number = 90;
+      var timer = setInterval(() => {
+        this.verifyText = number + " 秒后重新发送";
+        number--;
+        if (number == 0) {
+          clearInterval(timer);
+          this.verifyText = "重新发送验证码";
+          this.sending = false;
+        }
+      }, 1000);
     },
 
     confirmRegister() {},
 
     goReigsterProtocol() {
-      this.$router.push('/protocol');
-    }
+      this.$router.push("/protocol");
+    },
   },
 };
 </script>

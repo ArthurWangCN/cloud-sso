@@ -9,7 +9,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
     // 部署应用包时的基本 URL
-    publicPath: isProduction ? './' : '',
+    publicPath: isProduction ? '/sso' : '',
 
     // 生产环境构建不需要sourceMap
     productionSourceMap: false,

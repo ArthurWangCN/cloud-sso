@@ -107,37 +107,82 @@
 </template>
 
 <script>
-import { Base64 } from 'js-base64';
+import { Base64 } from "js-base64";
+import { login } from '@/api/interface/login';
 export default {
   name: "loginForm",
   data() {
     return {
-      tip: '',   // 错误提示
+      tip: "", // 错误提示
       showTip: false,
-      loginText: '登 录',
+      loginText: "登 录",
       form: {
         username: "",
         password: "",
         verifyCode: "",
-        agree: true
+        agree: true,
       },
       errCount: 0,
-      verifyImgSrc: '',
+      verifyImgSrc: "",
     };
   },
   methods: {
     login() {
+      this.showTip = false;
+      login({
+        username: this.form.username,
+        password: Base64.encode(this.form.password)
+      }).then(res => {
+        if(res.data.success) {
+          this.$router.push('/success');
+          localStorage.setItem('token', res.data.content.token);
+        } else {
+          this.showTip = true;
+          this.tip = res.data.message
+        }
+      }).catch(err => {
+          this.showTip = true;
+        this.tip = err.message;
+      })
     },
 
     verifyCode() {},
 
     getVerifyCode() {},
 
-    thirdLogin() {},
+    //第三方登录
+    thirdLogin: function (type) {
+      var w = window.innerWidth >> 1;
+      var l = (window.innerWidth - w) >> 1;
+      var t = 100;
+      var h = (window.innerHeight * 0.6) | 0;
+      var external = window.open(
+        "",
+        "_blank",
+        "width=" + w + ",height=" + h + ",top=" + t + ",left=" + l
+      );
+      var redirectUrl =
+        window.location.protocol +
+        "//" +
+        window.location.host +
+        "/Foundation/home/HandleRedirect?type=" +
+        type +
+        "&Redirect=" +
+        window.location.protocol +
+        "//" +
+        window.location.host +
+        "/PMC#/home";
+      external.location.href =
+        window.location.protocol +
+        "//my.cnki.net/ThirdLogin/ThirdLogin.aspx?to=" +
+        type +
+        "&RedirectUrl=" +
+        encodeURIComponent(redirectUrl);
+    },
 
     goRegister() {
-      this.$emit('goRegister');
-    }
+      this.$emit("goRegister");
+    },
   },
 };
 </script>

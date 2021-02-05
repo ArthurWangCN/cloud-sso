@@ -12,7 +12,7 @@
         <el-divider direction="vertical"></el-divider>
         <a href="https://www.cnki.net/" target="_blank">CNKI总库平台</a>
         <a href="http://kms.cnki.net" target="_blank">知识管理</a>
-        <a href="http://km.cnki.net/foundation/home/login#/home" target="_blank"
+        <a href="https://km.cnki.net/foundation/#/" target="_blank"
           >OKMS汇智</a
         >
         <a @click.prevent="goContactUs">联系我们</a>
