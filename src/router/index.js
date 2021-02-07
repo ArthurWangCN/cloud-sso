@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 const routes = [{
     path: '/',
-    name: 'Login',
+    name: 'login',
     component: Home,
     meta: {
       title: 'CNKI百行知识创新服务平台'
@@ -34,6 +34,14 @@ const routes = [{
     component: () => import( /* webpackChunkName: "about" */ '../views/Success.vue'),
     meta: {
       title: '登录成功'
+    }
+  },
+  {
+    path: '/offline',
+    name: 'offline',
+    component: () => import( /* webpackChunkName: "about" */ '../views/Offline.vue'),
+    meta: {
+      title: '消息提示'
     }
   },
 ]

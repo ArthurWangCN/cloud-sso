@@ -20,7 +20,7 @@ axios.interceptors.response.use(function (response) {
  if(response.status==401) {
   console.log(response,'401')
     router.replace({
-      name: 'Login'
+      name: 'login'
     })
  }
   // 对响应数据做点什么

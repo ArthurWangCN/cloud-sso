@@ -73,7 +73,6 @@
 }
 
 .login-btns {
-  /* margin-left: auto; */
   flex-shrink: 0;
   position: absolute;
   right: 30px;
@@ -386,7 +385,7 @@
 
   .login-content-r .el-input__prefix,
   .register-wrapper .el-input__prefix {
-    top: 12px;
+    top: 10px;
   }
 
   .login-wrapper .el-input__inner::-webkit-input-placeholder {
@@ -455,11 +454,13 @@
   }
 }
 
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1500px) {
   .login-header-c {
     max-width: 600px;
   }
+}
 
+@media screen and (max-width: 1366px) {
   .login-content-l {
     width: 638px;
     margin-right: 40px;
@@ -490,7 +491,7 @@
 }
 
 
-/* 头部底部 */
+/* 头部底部 —— 联系我们底部 */
 .okms-top {
   display: none;
 }
