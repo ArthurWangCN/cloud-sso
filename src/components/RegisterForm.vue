@@ -228,9 +228,7 @@ export default {
 
     // 注册
     confirmRegister() {
-      // console.log(this.registerForm);
       if (!this.validatorRegister()) return;
-      // console.log("通过验证");
       register({
         username: this.registerForm.registerUsername,
         mobile: this.registerForm.registerPhone.trim(),

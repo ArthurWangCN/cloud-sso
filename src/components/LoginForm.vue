@@ -108,7 +108,7 @@
 
 <script>
 import { Base64 } from "js-base64";
-import { login } from '@/api/interface/login';
+import { login } from "@/api/interface/login";
 export default {
   name: "loginForm",
   data() {
@@ -116,6 +116,7 @@ export default {
       tip: "", // 错误提示
       showTip: false,
       loginText: "登 录",
+      isLogging: false, // 正在登录
       form: {
         username: "",
         password: "",
@@ -128,22 +129,56 @@ export default {
   },
   methods: {
     login() {
-      this.showTip = false;
+      if (!this.loginValidator()) return;
+      if (this.isLogging) return;
+      this.loginText = "正 在 登 录...";
+      this.isLogging = true;
       login({
         username: this.form.username,
-        password: Base64.encode(this.form.password)
-      }).then(res => {
-        if(res.data.success) {
-          this.$router.push('/success');
-          localStorage.setItem('token', res.data.content.token);
-        } else {
-          this.showTip = true;
-          this.tip = res.data.message
-        }
-      }).catch(err => {
-          this.showTip = true;
-        this.tip = err.message;
+        password: Base64.encode(this.form.password),
       })
+        .then((res) => {
+          if (res.data.success) {
+            this.$router.push("/success");
+            localStorage.setItem("token", res.data.content.token);
+          } else {
+            this.showTip = true;
+            this.tip = res.data.message;
+          }
+        })
+        .catch((err) => {
+          this.showTip = true;
+          this.tip = err.message;
+        })
+        .finally(() => {
+          this.isLogging = false;
+          this.loginText = "登 录";
+        });
+    },
+
+    // 登录验证
+    loginValidator() {
+      this.showTip = true;
+      const username = this.form.username.trim();
+      const password = this.form.password;
+      if (!username) {
+        this.tip = "请输入用户名";
+        return;
+      }
+      if (username.length > 64) {
+        this.tip = "用户名的长度过长（不超过64个字符）";
+        return;
+      }
+      if (!password) {
+        this.tip = "请输入密码";
+        return;
+      }
+      if (password.length > 64) {
+        this.tip = "密码的长度过长（不超过64个字符）";
+        return;
+      }
+      this.showTip = false;
+      return true;
     },
 
     verifyCode() {},
@@ -156,7 +191,7 @@ export default {
       var l = (window.innerWidth - w) >> 1;
       var t = 100;
       var h = (window.innerHeight * 0.6) | 0;
-      var external = window.open(
+      window.external = window.open(
         "",
         "_blank",
         "width=" + w + ",height=" + h + ",top=" + t + ",left=" + l
@@ -165,19 +200,17 @@ export default {
         window.location.protocol +
         "//" +
         window.location.host +
-        "/Foundation/home/HandleRedirect?type=" +
-        type +
-        "&Redirect=" +
-        window.location.protocol +
-        "//" +
-        window.location.host +
-        "/PMC#/home";
-      external.location.href =
+        "/sso/thirdLogin/handleRedirect?type=" +
+        type;
+      window.external.location.href =
         window.location.protocol +
         "//my.cnki.net/ThirdLogin/ThirdLogin.aspx?to=" +
         type +
         "&RedirectUrl=" +
         encodeURIComponent(redirectUrl);
+      // window.external.location.href = 'http://localhost:8080/#/success?TID=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJSRUFEIiwiV1JJVEUiXSwiZXhwIjoxNjE0MjI1MDMzLCJqdGkiOiJjMGFiMjFmNC1mNGRmLTRlOTEtYTU5Yy04YzBlYzI1Y2I2NGMiLCJjbGllbnRfaWQiOiJjMyJ9.cG9doqOdUPEAtbQ9g752UGbs7IdoSo7WM2f4xLlqQWotIgG_m5LaRFLCDPrbCUtaTQD-0tUJUD6rma0bptC2EA7xyg6_yyu-IvuSWnUvWv01KQrqeiFhsH-MUf0PfuQQYAS1jbtrEnOFJvixvzxgE_KuRifwoXF2GNKkIMK2XKUdkgbXIyOkB83oOMMHPX5eZUd-1GyBQT2ZyxQ_nTvjz8twHisbsXMLYMpMcxvi4dX8jqgi6FJAfmQ33QDtxzRNJ7M1blvYdkwOxP1tFP80MnvlQg_3Ih4TPPPJww7NQteuHbJrJhdbniuIw19enCZhhm2maXeRLuFZgii02eDTiw';
+
+        console.log(redirectUrl)
     },
 
     goRegister() {

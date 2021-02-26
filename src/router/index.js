@@ -37,6 +37,14 @@ const routes = [{
     }
   },
   {
+    path: '/third',
+    name: 'third',
+    component: () => import( /* webpackChunkName: "about" */ '../views/ReturnUrl.vue'),
+    meta: {
+      title: '第三方登录成功'
+    }
+  },
+  {
     path: '/offline',
     name: 'offline',
     component: () => import( /* webpackChunkName: "about" */ '../views/Offline.vue'),

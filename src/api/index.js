@@ -6,8 +6,13 @@ const instance = axios.create({
 })
 
 // 添加请求拦截器
-axios.interceptors.request.use(function (config) {
+instance.interceptors.request.use((config) => {
   // 在发送请求之前做些什么
+  let token = window.localStorage.getItem('token');
+  if (token) {
+    config.headers['Authorization'] = token;
+    console.log(config);
+  }
   return config
 }, function (error) {
   // 对请求错误做些什么
@@ -16,13 +21,13 @@ axios.interceptors.request.use(function (config) {
 
 // 添加响应拦截器
 axios.interceptors.response.use(function (response) {
-  console.log(response,'response')
- if(response.status==401) {
-  console.log(response,'401')
+  console.log(response, 'response')
+  if (response.status == 401) {
+    console.log(response, '401')
     router.replace({
       name: 'login'
     })
- }
+  }
   // 对响应数据做点什么
   return response
 }, function (error) {

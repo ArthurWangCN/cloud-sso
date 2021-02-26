@@ -16,7 +16,7 @@
     <div class="offline-content">
       <div class="error">
         <h2>访问出错</h2>
-        <p class="error-con">您的账号在 IP :10.120.130.176 登录，您被迫下线</p>
+        <p class="error-con">您的账号在 IP :{{ip}} 登录，您被迫下线</p>
         <span class="login-btn" @click="goLogin">重新登录</span>
       </div>
     </div>
@@ -33,6 +33,15 @@
 <script>
 export default {
   name: "offline",
+  data() {
+    return {
+      ip: ''
+    }
+  },
+  created() {
+    console.log(this.$route.query);
+    this.ip = this.$route.query.ip;
+  },
   methods: {
     goLogin() {
       this.$router.push({ name: "login" });
